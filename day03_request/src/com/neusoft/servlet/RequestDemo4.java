@@ -28,10 +28,10 @@ public class RequestDemo4 extends HttpServlet {
 //        requestDispatcher.forward(req, resp);
 //
         // 转发时存储数据到request域中
-//        req.setAttribute("msg", "hello");
-//        req.getRequestDispatcher("/requestDemo5").forward(req, resp);
-        // 转发到指定的地址
-        req.getRequestDispatcher("http://www.neusoft.com").forward(req, resp);
+        req.setAttribute("msg", "hello");
+        req.getRequestDispatcher("/requestDemo5").forward(req, resp);
+        // 只能转发当前项目下的指定，外部的不行
+//        req.getRequestDispatcher("http://www.baidu.com").forward(req, resp);
 
 
     }
