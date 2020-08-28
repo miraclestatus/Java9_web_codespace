@@ -31,7 +31,7 @@ public class RequestDemo4 extends HttpServlet {
         req.setAttribute("msg", "hello");
         req.getRequestDispatcher("/requestDemo5").forward(req, resp);
         // 只能转发当前项目下的指定，外部的不行
-//        req.getRequestDispatcher("http://www.baidu.com").forward(req, resp);
+        //    req.getRequestDispatcher("http://www.baidu.com").forward(req, resp);
 
 
     }
