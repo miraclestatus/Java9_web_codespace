@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        window.onload = function () {
+            var img =  document.querySelector("#checkCode")
+            img.onclick = function () {
+                var date = new Date().getTime();
+              this.src = "/checkCodeServlet?"+ date;
+
+            }
+        }
+    </script>
+
 </head>
 <body>
-<img src="/checkCodeServlet" alt="">
-<a href="">点击图片更换验证码</a>
+<img id="checkCode" src="/checkCodeServlet" alt="">
+<a href="#">看不清楚换一张</a>
 
 
 
