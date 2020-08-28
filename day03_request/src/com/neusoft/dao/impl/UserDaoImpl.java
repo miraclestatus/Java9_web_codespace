@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User login(User loginUser) throws SQLException {
 
-        String sql = "select * from user where username = ? and password = ?";
+        String sql = "select * from userlogin where username = ? and password = ?";
 
         try{
             conn = JDBCUtils.getConnection();
