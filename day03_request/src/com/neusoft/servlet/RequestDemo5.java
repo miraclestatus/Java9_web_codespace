@@ -21,6 +21,8 @@ public class RequestDemo5 extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Object msg = req.getAttribute("msg");
+        System.out.println(msg);
         System.out.println("requestDemo5被访问了");
 
 

@@ -24,8 +24,14 @@ public class RequestDemo4 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 转发
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/requestDemo5");
-        requestDispatcher.forward(req, resp);
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/requestDemo5");
+//        requestDispatcher.forward(req, resp);
+//
+        // 转发时存储数据到request域中
+//        req.setAttribute("msg", "hello");
+//        req.getRequestDispatcher("/requestDemo5").forward(req, resp);
+        // 转发到指定的地址
+        req.getRequestDispatcher("http://www.neusoft.com").forward(req, resp);
 
 
     }
