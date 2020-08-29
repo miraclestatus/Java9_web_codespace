@@ -40,6 +40,7 @@ public class CookieTest extends HttpServlet {
                 String name = cookie.getName();
                 // 判断变量的cookie 是否 为 lastTime
                 if ("lastTime".equals(name)){
+                    String value = cookie.getValue();
                     //  有 不是第一次
                     flag = true;
                     // 获取当前时间
@@ -55,7 +56,6 @@ public class CookieTest extends HttpServlet {
                     cookie.setMaxAge(60*60*24*30);// 一个月
                     resp.addCookie(cookie);
                     // 响应数据
-                    String value = cookie.getValue();
 
                     System.out.println("value解码前" +value);
                     // URL 解码

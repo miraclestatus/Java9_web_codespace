@@ -11,6 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+<%--  jsp案例--%>
+  <%  out.write("hehehahha!"); %>
+  <%! String name = "zhangsan";%>
+  <%= "nihaoma"%>
   </body>
 </html>
