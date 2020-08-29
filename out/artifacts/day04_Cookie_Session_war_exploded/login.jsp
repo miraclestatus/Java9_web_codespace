@@ -46,7 +46,9 @@
     </table>
 
 </form>
-<div></div>
+<div><%=request.getAttribute("login_error") == null?"":request.getAttribute("login_error")%></div>
+<div><%=request.getAttribute("cc_error") == null?"":request.getAttribute("cc_error")%></div>
+
 
 </body>
 </html>

@@ -27,7 +27,7 @@ public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        // 图片验证码
         int width = 100;
-        int height = 50;
+        int height = 30;
         //1. 创建一个 图片验证码对象
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
@@ -42,15 +42,19 @@ public class CheckCodeServlet extends HttpServlet {
         String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789";
         // 随机选index
         Random random = new Random();
-
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= 4 ; i++) {
             int index = random.nextInt(str.length());
             // 获取字符
             char ch = str.charAt(index);
+            sb.append(ch);
             // 写验证码
             g.drawString(ch+"", width/5*i, height/2);
 
         }
+        // 将验证码存入session
+        req.getSession().setAttribute("checkCode_session", sb.toString());
+
 
         // 画干扰线
         g.setColor(Color.GREEN);
