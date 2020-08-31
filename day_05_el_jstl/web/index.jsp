@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: Eric
-  Date: 2020/8/29
-  Time: 14:32
+  Date: 2020/8/31
+  Time: 08:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="top.jsp"%>
 <html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<h1><%=request.getSession().getAttribute("user")%>,欢迎您</h1>
-success
-</body>
+  <head>
+    <title>$Title$</title>
+  </head>
+  <body>
+  $END$
+  </body>
 </html>
