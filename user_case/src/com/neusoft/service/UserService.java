@@ -22,4 +22,6 @@ public interface UserService {
 
     User findUserById(String id);
 
+    User login(User user);
+
 }

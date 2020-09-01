@@ -41,4 +41,10 @@ public class UserServiceImpl implements UserService {
 
         return dao.findById(Integer.parseInt(id));
     }
+
+    @Override
+    public User login(User user) {
+
+        return dao.findUserByUserNameAndPassword(user.getUsername(), user.getPassword());
+    }
 }
