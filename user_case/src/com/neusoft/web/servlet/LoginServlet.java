@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
         session.removeAttribute("CHECKCODE_SERVER");
-        if (!checkcode_server.equals(verifycode)){
+        if (!checkcode_server.equalsIgnoreCase(verifycode)){
 
             req.setAttribute("login_msg","验证码错误");
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
