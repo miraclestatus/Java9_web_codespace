@@ -39,8 +39,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update(User user) {
         // TODO
-        String sql = "update user set  name = ?  where id = ?";
-        template.update(sql, user.getName(), user.getId());
+        String sql = "update user set  name = ?, gender = ?, age = ?, address = ? , qq = ?, email = ? where id = ?";
+        template.update(sql, user.getName(),  user.getGender(), user.getAge(), user.getAddress(),
+                user.getQq(), user.getEmail(), user.getId());
 
     }
 
