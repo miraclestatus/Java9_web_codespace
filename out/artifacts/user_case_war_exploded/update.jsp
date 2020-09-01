@@ -21,7 +21,7 @@
     <form action="${pageContext.request.contextPath}/updateUserServlet" method="post">
         <div class="form-group">
             <label for="name">姓名：</label>
-            <input type="text" class="form-control" id="name" name="name"  readonly="readonly" placeholder="请输入姓名" />
+            <input type="text" class="form-control" id="name" name="name" value="${user.name}" readonly="readonly" placeholder="请输入姓名" />
         </div>
 
         <div class="form-group">

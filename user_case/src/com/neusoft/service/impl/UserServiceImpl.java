@@ -4,6 +4,7 @@ import com.neusoft.dao.UserDao;
 import com.neusoft.dao.impl.UserDaoImpl;
 import com.neusoft.domain.User;
 import com.neusoft.service.UserService;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import java.util.List;
 
@@ -33,5 +34,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(String id) {
         dao.delete(Integer.parseInt(id));
+    }
+
+    @Override
+    public User findUserById(String id) {
+
+        return dao.findById(Integer.parseInt(id));
     }
 }

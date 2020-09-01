@@ -9,11 +9,12 @@ public interface UserDao {
 
     public List<User> findAll();
 
-
     public  void add(User user);
 
-    void update(User user);
-    void delete(int id);
+    public void update(User user);
 
+    public void delete(int id);
+
+    public User findById(int id);
 
 }

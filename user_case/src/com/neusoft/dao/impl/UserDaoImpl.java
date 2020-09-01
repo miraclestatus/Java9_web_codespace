@@ -5,8 +5,11 @@ import com.neusoft.domain.User;
 import com.neusoft.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -46,5 +49,13 @@ public class UserDaoImpl implements UserDao {
         String sql = "delete from user where id = ?";
 
         template.update(sql,id);
+    }
+
+    @Override
+    public User findById(int id) {
+
+        String sql = "select * from user where id = ?";
+
+        return template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
     }
 }
