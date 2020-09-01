@@ -49,4 +49,12 @@ public class TestUserDaoImpl {
 
 
     }
+
+
+    @Test
+    public void test4(){
+        UserDaoImpl dao = new UserDaoImpl();
+        User user = dao.findUserByUserNameAndPassword("eric", "123");
+        System.out.println(user);
+    }
 }
