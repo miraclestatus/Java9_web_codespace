@@ -19,6 +19,7 @@
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">修改联系人</h3>
     <form action="${pageContext.request.contextPath}/updateUserServlet" method="post">
+<%--        隐藏数据--%>
         <input type="hidden" name="id" value="${user.id}">
         <div class="form-group">
             <label for="name">姓名：</label>
@@ -27,8 +28,8 @@
 
         <div class="form-group">
             <label>性别：</label>
-            <input type="radio" name="sex" value="男"  />男
-            <input type="radio" name="sex" value="女"  />女
+            <input type="radio" name="gender" value="男"  />男
+            <input type="radio" name="gender" value="女"  />女
         </div>
 
         <div class="form-group">
