@@ -20,4 +20,16 @@ public class TestUserDaoImpl {
             System.out.println(user);
         }
     }
+    @Test
+    public void test2(){
+        User user = new User();
+        user.setName("dada");
+        user.setGender("人妖");
+        user.setAddress("泰国");
+        user.setQq("23123213");
+        user.setAge(323);
+        user.setEmail("3242342@qq.com");
+        UserDao dao = new UserDaoImpl();
+        dao.add(user);
+    }
 }

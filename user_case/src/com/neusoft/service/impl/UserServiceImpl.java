@@ -18,4 +18,10 @@ public class UserServiceImpl implements UserService {
         // 调用dao 查询
         return dao.findAll();
     }
+
+    @Override
+    public void addUser(User user) {
+        // 添加用户
+        dao.add(user);
+    }
 }
