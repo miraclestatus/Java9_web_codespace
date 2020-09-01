@@ -32,4 +32,19 @@ public class UserDaoImpl implements UserDao {
                 user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail());
         System.out.println(i);
     }
+
+    @Override
+    public void update(User user) {
+        // TODO
+        String sql = "update user set  name = ?  where id = ?";
+        template.update(sql, user.getName(), user.getId());
+
+    }
+
+    @Override
+    public void delete(int id) {
+        String sql = "delete from user where id = ?";
+
+        template.update(sql,id);
+    }
 }
