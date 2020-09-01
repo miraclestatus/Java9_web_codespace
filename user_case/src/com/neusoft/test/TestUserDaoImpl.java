@@ -3,8 +3,11 @@ package com.neusoft.test;
 import com.neusoft.dao.UserDao;
 import com.neusoft.dao.impl.UserDaoImpl;
 import com.neusoft.domain.User;
+import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -31,5 +34,19 @@ public class TestUserDaoImpl {
         user.setEmail("3242342@qq.com");
         UserDao dao = new UserDaoImpl();
         dao.add(user);
+    }
+
+    @Test
+    public void test3() throws InvocationTargetException, IllegalAccessException {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name", "zhansgan");
+        map.put("age", "12");
+
+        User user = new User();
+        BeanUtils.populate(user, map);
+
+        System.out.println(user);
+
+
     }
 }
