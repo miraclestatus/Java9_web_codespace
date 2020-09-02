@@ -24,4 +24,6 @@ public interface UserService {
 
     User login(User user);
 
+    void deleteSelectedUser(String[] ids);
+
 }
