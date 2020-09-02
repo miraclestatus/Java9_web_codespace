@@ -1,5 +1,8 @@
 package com.neusoft.web.servlet;
 
+import com.neusoft.service.UserService;
+import com.neusoft.service.impl.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,5 +29,11 @@ public class DelSelectedServlet extends HttpServlet {
 
         System.out.println(Arrays.toString(uids));
         System.out.println("dsd");
+
+        UserService service = new UserServiceImpl();
+        service.deleteSelectedUser(uids);
+
+        resp.sendRedirect(req.getContextPath()+"/userListServlet");
+
     }
 }

@@ -2,11 +2,13 @@ package com.neusoft.service.impl;
 
 import com.neusoft.dao.UserDao;
 import com.neusoft.dao.impl.UserDaoImpl;
+import com.neusoft.domain.PageBean;
 import com.neusoft.domain.User;
 import com.neusoft.service.UserService;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Eric Lee
@@ -57,4 +59,35 @@ public class UserServiceImpl implements UserService {
             }
         }
     }
+
+    @Override
+    public PageBean<User> findUserByPage(String _currentPage, String _rows, Map<String, String[]> condition){
+        int currentPage = Integer.parseInt(_currentPage);
+        int rows = Integer.parseInt(_rows);
+        if (currentPage <= 0){
+            currentPage = 1;
+        }
+        // 创建 PageBean对象
+        PageBean<User> pb = new PageBean();
+        // 设置参数
+        pb.setCurrentPage(currentPage);
+        pb.setRows(rows);
+
+        // 调用dao 的 查询总记录数
+        int totalCount = dao.findTotalCount(condition);
+        pb.setTotalCount(totalCount);
+        // 调用 dao 分页查询
+        int start = (currentPage-1)*rows;
+        List<User> list = dao.findByPage(start, rows, condition);
+        pb.setList(list);
+        // 计算总页码
+        int totalPage = (totalCount%rows) == 0? totalCount/rows : totalCount/rows +1;
+        pb.setTotalPage(totalPage);
+
+        return pb;
+    }
+
+
+
+
 }

@@ -1,8 +1,10 @@
 package com.neusoft.service;
 
+import com.neusoft.domain.PageBean;
 import com.neusoft.domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户管理业务接口
@@ -25,5 +27,7 @@ public interface UserService {
     User login(User user);
 
     void deleteSelectedUser(String[] ids);
+
+    public PageBean<User> findUserByPage(String _currentPage, String _rows, Map<String, String[]> condition);
 
 }
