@@ -30,7 +30,8 @@ public class DelUserServlet extends HttpServlet {
         UserService userService = new UserServiceImpl();
         userService.deleteUser(id);
         // 重定向到list
-        resp.sendRedirect(req.getContextPath()+"/userListServlet");
+//        resp.sendRedirect(req.getContextPath()+"/userListServlet");
+        resp.sendRedirect(req.getContextPath()+"/findUserServlet");
 
 
     }

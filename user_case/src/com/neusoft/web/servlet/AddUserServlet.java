@@ -60,6 +60,7 @@ public class AddUserServlet  extends HttpServlet {
         UserServiceImpl service = new UserServiceImpl();
         service.addUser(user);
         // 5. 重定向到 list.jsp
-        resp.sendRedirect(req.getContextPath()+"/userListServlet");
+//        resp.sendRedirect(req.getContextPath()+"/userListServlet");
+        resp.sendRedirect(req.getContextPath()+"/findUserServlet");
     }
 }
