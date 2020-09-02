@@ -79,9 +79,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int findTotalCount(Map<String, String[]> condition) {
         String sql = "SELECT COUNT(*) FROM user where 1=1";
-        StringBuilder sb = new StringBuilder(sql);
-        // 遍历map
-        Set<String> keySet = condition.keySet();
+//        StringBuilder sb = new StringBuilder(sql);
+//        // 遍历map
+//        Set<String> keySet = condition.keySet();
 
 //        for (String key :keySet){
 //            // 排除 分页的条件参数
@@ -96,30 +96,33 @@ public class UserDaoImpl implements UserDao {
 //                sb.append("and "+ key +"like ?");
 //            }
 //        }
-        System.out.println("sql findTotalCount" +sb.toString());
+//        System.out.println("sql findTotalCount" +sb.toString());
 
 
-        return template.queryForObject(sb.toString(), Integer.class);
+//        return template.queryForObject(sb.toString(), Integer.class);
+        return template.queryForObject(sql, Integer.class);
     }
 
     @Override
     public List<User> findByPage(int start, int rows, Map<String, String[]> condition) {
 
-        String sql = "select * from user where 1= 1";
-        StringBuilder sb = new StringBuilder(sql);
-        Set<String> keySet = condition.keySet();
+//        String sql = "select * from user where 1= 1";
+        String sql = "select * from user  limit ?,?";
+//        StringBuilder sb = new StringBuilder(sql);
+//        Set<String> keySet = condition.keySet();
+//
+//        List<Object> params = new ArrayList<>();
+//
+//
+//        // 添加分页
+//        sb.append("limit ?,? ");
+//        params.add(start);
+//        params.add(rows);
+//        System.out.println("sqlfindByPage"+sb.toString());
+//        System.out.println("params"+params);
 
-        List<Object> params = new ArrayList<>();
 
-
-        // 添加分页
-        sb.append("limit ?,? ");
-        params.add(start);
-        params.add(rows);
-        System.out.println("sqlfindByPage"+sb.toString());
-        System.out.println("params"+params);
-
-
-        return template.query(sql, new BeanPropertyRowMapper<User>(User.class), params.toArray());
+//        return template.query(sql, new BeanPropertyRowMapper<User>(User.class), params.toArray());
+        return template.query(sql, new BeanPropertyRowMapper<User>(User.class), start, rows);
     }
 }
